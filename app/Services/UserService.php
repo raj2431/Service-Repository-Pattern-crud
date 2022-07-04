@@ -2,15 +2,14 @@
 
 namespace App\Services;
 
+use App\Models\User;
 use App\Repository\UserRepositoryInterface;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Hash;
 
 class UserService
 {
-
     private $userRepository;
-
     public function __construct(UserRepositoryInterface $userRepository)
     {
         $this->userRepository = $userRepository;
@@ -24,8 +23,14 @@ class UserService
         return $this->userRepository->paginate($perPge);
     }
 
-    public function saveUser($data, $id = "")
+    /**
+     * Save User
+     * @param array $data 
+     * @return User
+     */
+    public function saveUser(array $data): User
     {
+        $data['password'] =  Hash::make(12345678);
         return $this->userRepository->save($data);
     }
 }

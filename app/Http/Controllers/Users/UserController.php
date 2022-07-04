@@ -48,7 +48,6 @@ class UserController extends Controller
     public function store(StoreUser $request)
     {
         $data = $request->validated();
-        $data['password'] = 123456;
         $user = $this->userService->saveUser($data);
         return redirect()->route('user.index');
 
