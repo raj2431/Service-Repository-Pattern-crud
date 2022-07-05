@@ -26,8 +26,8 @@ class StoreUser extends FormRequest
         return [
             'first_name' => 'required',
             'last_name' => 'required',
-            'email' => 'required|unique:users,email',
-            'mobile_number' => 'required|unique:users,mobile_number',
+            'email' => 'required|email|unique:users,email,' . $this->user,
+            'mobile_number' => 'required|unique:users,mobile_number,' . $this->user,
             'address' => 'required',
         ];
     }

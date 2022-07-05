@@ -20,6 +20,14 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 
+    <style>
+        .main-section {
+            padding: 10px;
+        }
+    </style>
+
+    @yield('css')
+
 </head>
 
 <body>
@@ -39,6 +47,7 @@
                 </ul>
             </div>
         </nav>
+        @include('flash-message')
 
         <main class="py-4">
             @yield('content')
@@ -47,6 +56,8 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    @yield('js')
 </body>
 
 </html>

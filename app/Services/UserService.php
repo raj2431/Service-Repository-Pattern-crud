@@ -28,9 +28,31 @@ class UserService
      * @param array $data 
      * @return User
      */
-    public function saveUser(array $data): User
+    public function createOrUpdateUser(array $data, $id = ""): User
     {
         $data['password'] =  Hash::make(12345678);
-        return $this->userRepository->save($data);
+        return $this->userRepository->save($data,$id);
     }
+
+    /**
+     * To get single user by id
+     * @param int $id
+     * @return User
+     */
+    public function getUserById($id): User
+    {
+        return $this->userRepository->find($id);
+    }
+
+
+    /**
+     * To get single user by id
+     * @param int $id
+     * @return User
+     */
+    public function deleteSingleOrMultipleUser($id)
+    {
+       return $this->userRepository->delete($id);
+    }
+
 }

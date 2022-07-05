@@ -1,0 +1,5 @@
+@extends('pages.users.create')
+@section('heading','Update User')
+@section('mehtod','PUT')
+@section('action',route('user.update',$user->id))
+@section('method','PUT')

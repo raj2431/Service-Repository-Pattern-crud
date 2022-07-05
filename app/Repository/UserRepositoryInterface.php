@@ -9,6 +9,8 @@ interface UserRepositoryInterface
 {
     public function all(): Collection;
     public function find($id): User;
-    public function save($data): User;
+    public function save($data, $id=""): User;
+    public function delete($id);
     public function paginate(int $perPage);
+    
 }

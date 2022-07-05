@@ -45,9 +45,23 @@ class UserRepository implements UserRepositoryInterface
      * @return User
      */
 
-    public function save($data): User
+    public function save($data, $id = ""): User
     {
-        return $this->model->create($data);
+        $user = $this->model->find($id);
+        if (empty($user)) {
+            $user = $this->model;
+        }
+        $user->fill($data);
+        $user->save();
+        return $user;
+    }
+    /**
+     * TO delete single or multile user
+     * @param Int or array $Id
+     */
+    public function delete($Id)
+    {
+        return $this->model->destroy([$Id]);
     }
 
     /**
