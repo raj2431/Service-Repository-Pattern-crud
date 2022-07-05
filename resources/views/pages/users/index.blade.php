@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
 @section('css')
-    <style>
-        .edit-btn {
-            float: left;
-            margin-right: 10px;
-        }
+<style>
+    .edit-btn {
+        float: left;
+        margin-right: 10px;
+    }
 
-        .delete-form,.delete-user{
-            float: left;
-        }
-        
-    </style>
+    .delete-form,
+    .delete-user {
+        float: left;
+    }
+</style>
 @endsection
 
 @section('content')
@@ -61,7 +61,12 @@
 
                 </tbody>
             </table>
-            {!! $users->links() !!}
+
+            <div class="d-flex">
+                <div class="mx-auto">
+                    {!! $users->links() !!}
+                </div>
+            </div>
         </div>
     </div>
 </div>
