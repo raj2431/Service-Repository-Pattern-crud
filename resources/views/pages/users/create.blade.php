@@ -11,7 +11,7 @@
         <div class="offset-lg-12 col-lg-12 col-sm-12 col-12 border main-section">
             <h2 class="text-inverse">@yield('heading')
 
-                <a class="btn btn-primary btn-small pull-right" style="float:right;margin-top:4px" href="{{route('user.create')}}">Back</a>
+                <a class="btn btn-primary btn-small pull-right" style="float:right;margin-top:4px" href="{{route('user.index')}}">Back</a>
             </h2>
             <hr>
             <form class="" id="needs-validation" method="POST" action="@yield('action')">

@@ -6,6 +6,10 @@
             float: left;
             margin-right: 10px;
         }
+
+        .delete-form,.delete-user{
+            float: left;
+        }
         
     </style>
 @endsection
