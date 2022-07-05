@@ -26,8 +26,7 @@ Route::prefix('v1')->namespace('API\V1')->group(function () {
     |--------------------------------------------------------------------------
     */
     Route::post('auth/signup', [App\Http\Controllers\API\V1\Auth\AuthController::class, 'signup']);
-    Route::post('auth/signin', 'Auth\AuthController@signin');
-    Route::post('auth/social', 'Auth\AuthController@social');
+    Route::post('auth/signin', [App\Http\Controllers\API\V1\Auth\AuthController::class, 'signin']);
 
     /*
       |--------------------------------------------------------------------------

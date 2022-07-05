@@ -3,9 +3,10 @@
 namespace App\Services\API\V1\Auth;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\Repository\UserRepositoryInterface;
 use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Facades\Hash;
 
 class AuthService
 {
@@ -26,4 +27,10 @@ class AuthService
         $data['password'] =  Hash::make($data['password']);
         return $this->userRepository->save($data);
     }
+
+    public function signin($data)
+    {
+        return Auth::attempt(['email'=>$data['email'], 'password' => $data['password']]);
+    }
+
 }

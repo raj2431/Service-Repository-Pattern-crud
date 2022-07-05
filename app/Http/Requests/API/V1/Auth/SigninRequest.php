@@ -13,7 +13,7 @@ class SigninRequest extends BaseFormRquest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class SigninRequest extends BaseFormRquest
     public function rules()
     {
         return [
-            "email" =>  "required",
+            "email" =>  "required|exists:users,email",
             "password" =>  "required"
         ];
     }
